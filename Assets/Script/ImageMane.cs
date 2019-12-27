@@ -7,11 +7,13 @@ public class ImageMane : MonoBehaviour
     [SerializeField] GameObject Water;
     [SerializeField] GameObject Clay;
     [SerializeField] GameObject Bricks;
-    [SerializeField] GameObject ScrollVeiw;
+    GameObject scroll;
+    Transform parent;
     // Start is called before the first frame update
     void Start()
     {
-
+        scroll = GameObject.FindGameObjectWithTag("ScrollView");
+        parent = scroll.transform;
     }
 
     // Update is called once per frame
@@ -24,13 +26,11 @@ public class ImageMane : MonoBehaviour
         switch (ImageName)
         {
             case "水":
-                Instantiate(Water,Vector3.zero, Quaternion.identity,ScrollVeiw);
+               Instantiate(Water ,parent);
                 break;
             case "粘土":
-                Clay.SetActive(true);
                 break;
             case "木材":
-                Bricks.SetActive(true);
                 break;
             default:
                 break;

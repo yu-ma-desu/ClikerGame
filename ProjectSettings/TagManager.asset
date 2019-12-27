@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Property
   - ListObj
+  - ScrollView
+  - Foundation
   layers:
   - Default
   - TransparentFX
