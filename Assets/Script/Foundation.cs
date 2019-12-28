@@ -14,8 +14,4 @@ public class Foundation : MonoBehaviour
         _transform = parent.transform;
         Instantiate(_foundation, _transform);
     }
-    void Start()
-    {
-           
-    }
 }

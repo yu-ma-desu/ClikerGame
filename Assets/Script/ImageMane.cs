@@ -2,38 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+/// <summary>  
+/// 建物生成のみ
+/// </summary>
 public class ImageMane : MonoBehaviour
 {
-    [SerializeField] GameObject Water;
-    [SerializeField] GameObject Clay;
-    [SerializeField] GameObject Bricks;
+    List<GameObject> Images = new List<GameObject>();
+    int ImageIndex;
+
     GameObject scroll;
     Transform parent;
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        Images.Add((GameObject)Resources.Load("Prefab/Water"));
+        Images.Add((GameObject)Resources.Load("Prefab/Clay"));
+        Images.Add((GameObject)Resources.Load("Prefab/Bricks"));
+
         scroll = GameObject.FindGameObjectWithTag("ScrollView");
         parent = scroll.transform;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    /// <summary>
+    /// 建物生成
+    /// </summary>
+    /// <param name="ImageName">建造物</param>
     public void Image(string ImageName)
     {
         switch (ImageName)
         {
             case "水":
-               Instantiate(Water ,parent);
+                ImageIndex = 0;
                 break;
             case "粘土":
+                ImageIndex = 1;
                 break;
             case "木材":
+                ImageIndex = 2;
                 break;
             default:
                 break;
         }
+        Instantiate(Images[ImageIndex], parent);
     }
 }

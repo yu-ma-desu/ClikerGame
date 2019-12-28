@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 建物情報
+/// </summary>
 public class Item : MonoBehaviour
 {
     [SerializeField]
