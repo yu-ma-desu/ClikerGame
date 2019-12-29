@@ -8,6 +8,7 @@ TagManager:
   - ListObj
   - ScrollView
   - Foundation
+  - ImageMane
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -8,59 +6,60 @@ using UnityEngine.UI;
 /// </summary>
 public class Item : MonoBehaviour
 {
+    //Inspectorでいじるとこ
     [SerializeField]
     private Text _nameText = null;
     [SerializeField]
-    private string Name =  "アイテム名";
+    private string Name = "アイテム名";
     [SerializeField]
     private Text _price = null;
     [SerializeField]
     float price = 0;
+    [SerializeField]
+    float SecondUp = 0;
+
     float second;
-    float UpNum;
     float _cklick;
-    int ItemCount;
 
-    GameObject Script;
-    GameObject ListObj;
-    GameObject Script2;
+    GameObject Property;
+    GameObject ImageObj;
 
-    ListMane list;
     ItemManeger item;
     ImageMane imageMane;
     void Start()
     {
-        Script = GameObject.FindGameObjectWithTag("Property");
-        ListObj = GameObject.FindGameObjectWithTag("ListObj");
-        Script2 = GameObject.Find("ImageMane");
-        item = Script.GetComponent<ItemManeger>();
-        list = ListObj.GetComponent<ListMane>();
-        imageMane = Script2.GetComponent<ImageMane>();
-        UpNum = price / 10;
-        _cklick = price * 0.2f;
+        Property = GameObject.FindGameObjectWithTag("Property");
+        ImageObj = GameObject.FindGameObjectWithTag("ImageMane");
+        item = Property.GetComponent<ItemManeger>();
+        imageMane = ImageObj.GetComponent<ImageMane>();
         _nameText.text = Name;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         _price.text = $"{price.ToString("f1")}円";
     }
-    public void TenItem()
+
+    public void BuyItem()
     {
-        imageMane.Image(Name);
         if (item.Maney >= price)
         {
-            ItemCount++;
-            item.Maney += UpNum;
-            item.Maney -= price;
-            item.SecondManey += second;
-            item.ClickManey += _cklick;
-            price *= 1.2f;
+            Accounting();
         }
-        if (ItemCount == 1)
+        else
         {
-            list.Add(Name);
+            Debug.Log("買えません");
         }
+    }
+    void Accounting()
+    {
+        //三項演算子試し
+        second = item.SecondManey <= 1 ? SecondUp : item.SecondManey * SecondUp;
+
+        imageMane.Image(Name);
+
+        _cklick = price * 0.2f;
+        item.Maney -= price;
+        item.SecondManey += second;
+        item.ClickManey += _cklick;
+
+        price *= 1.2f;
+        _price.text = $"{price.ToString("f1")}円";
     }
 }

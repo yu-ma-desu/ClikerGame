@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ゲームの表記関係
+/// </summary>
 public class Maneger : MonoBehaviour
 {
     [SerializeField]
@@ -37,10 +40,12 @@ public class Maneger : MonoBehaviour
     void Update()
     {
         count = item.Maney;
-        clicknum = item.ClickManey;
-        SecondNum = item.SecondManey;
         CountText.text = $"{clicknum.ToString("f1")}";
-        _secondText.text = $"{SecondNum.ToString("f1")}";
+
+        clicknum = item.ClickManey;
         ALLCount.text = $"{count.ToString("f1")}円";
+
+        SecondNum = item.SecondManey;
+        _secondText.text = $"{SecondNum.ToString("f1")}";
     }
 }

@@ -28,8 +28,8 @@ public class ImageMane : MonoBehaviour
     /// <summary>
     /// 建物生成
     /// </summary>
-    /// <param name="ImageName">建造物</param>
-    public void Image(string ImageName)
+    /// <param name="ImageName">建造物名前</param>
+    public void Image(in string ImageName)
     {
         switch (ImageName)
         {

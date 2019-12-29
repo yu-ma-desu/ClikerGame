@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// お金関係
+/// </summary>
 public class ItemManeger : MonoBehaviour
 {
     public float Maney { get; set; } = 0;
