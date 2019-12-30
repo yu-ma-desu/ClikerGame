@@ -50,7 +50,7 @@ public class ImageMane : MonoBehaviour
             default:
                 break;
         }
-        Instantiate(Images[ImageIndex], new Vector3(pos.x + 110, pos.y + 100), Quaternion.identity, parent);
+        Instantiate(Images[ImageIndex], new Vector3(pos.x + 110, pos.y +100), Quaternion.identity, parent);
         ObjWidth = Images[ImageIndex].GetComponent<RectTransform>().sizeDelta.y;
         GameManeger.ObjSize += ObjWidth;
         pos.y = GameManeger.ObjSize;
