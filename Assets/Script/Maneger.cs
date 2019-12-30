@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ClikerGame;
 
 /// <summary>
 /// ゲームの表記関係
@@ -21,31 +22,31 @@ public class Maneger : MonoBehaviour
 
     float SecondTime = 0.0f;
 
-    ItemManeger item;
+    GameManeger _game;
     GameObject Script;
     void Start()
     {
         Script = GameObject.FindGameObjectWithTag("Property");
-        item = Script.GetComponent<ItemManeger>();
+        _game = Script.GetComponent<GameManeger>();
     }
     private void FixedUpdate()
     {
         SecondTime += Time.deltaTime;
         if (SecondTime >= 1)
         {
-            item.Maney += SecondNum;
+            _game.Maney += SecondNum;
             SecondTime = 0;
         }
     }
     void Update()
     {
-        count = item.Maney;
+        count = _game.Maney;
         CountText.text = $"{clicknum.ToString("f1")}";
 
-        clicknum = item.ClickManey;
+        clicknum = _game.ClickManey;
         ALLCount.text = $"{count.ToString("f1")}円";
 
-        SecondNum = item.SecondManey;
+        SecondNum = _game.SecondManey;
         _secondText.text = $"{SecondNum.ToString("f1")}";
     }
 }
