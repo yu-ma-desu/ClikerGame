@@ -9,6 +9,7 @@ using ClikerGame;
 /// </summary>
 public class ImageMane : MonoBehaviour
 {
+    [SerializeField]
     List<GameObject> Images = new List<GameObject>();
     int ImageIndex;
 
@@ -21,14 +22,14 @@ public class ImageMane : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        Images.Add((GameObject)Resources.Load("Prefab/Water"));
-        Images.Add((GameObject)Resources.Load("Prefab/Clay"));
-        Images.Add((GameObject)Resources.Load("Prefab/Bricks"));
-
         scroll = GameObject.FindGameObjectWithTag("ScrollView");
         parent = scroll.transform;
         build = GameObject.FindGameObjectWithTag("BuildSpown");
         pos = build.transform.position;
+    }
+    private void Start()
+    {
+        GameManeger.ObjSize = pos.y;
     }
     /// <summary>
     /// 建物生成
@@ -50,9 +51,10 @@ public class ImageMane : MonoBehaviour
             default:
                 break;
         }
-        Instantiate(Images[ImageIndex], new Vector3(pos.x + 110, pos.y +100), Quaternion.identity, parent);
+        Instantiate(Images[ImageIndex], new Vector3(pos.x, pos.y), Quaternion.identity, parent);
         ObjWidth = Images[ImageIndex].GetComponent<RectTransform>().sizeDelta.y;
         GameManeger.ObjSize += ObjWidth;
+        GameManeger.ObjCount += 1;
         pos.y = GameManeger.ObjSize;
     }
 }
