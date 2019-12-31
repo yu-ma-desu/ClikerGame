@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
     float SecondUp = 0;
 
     float second;
-    float _cklick;
+    float _cklick = 3;
 
     GameObject Property;
     GameObject ImageObj;
@@ -55,12 +55,16 @@ public class Item : MonoBehaviour
 
         imageMane.Image(Name);
 
-        _cklick = price * 0.2f;
         _game.Maney -= price;
         _game.SecondManey += second;
-        _game.ClickManey += _cklick;
 
         price *= 1.2f;
         _price.text = $"{price.ToString("f1")}円";
+
+        if (GameManeger.ObjCount > _cklick)
+        {
+            _game.ClickManey *= 2;
+            _cklick += 3;
+        }
     }
 }

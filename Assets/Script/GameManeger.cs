@@ -15,6 +15,7 @@ namespace ClikerGame
         public float ClickManey { get; set; } = 1;
         public float SecondManey { get; set; } = 0;
         static public float ObjSize { get; set; } = 0;
+        static public int ObjCount { get; set; } = 0;
     }
 }
 
