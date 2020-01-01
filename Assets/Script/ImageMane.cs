@@ -15,17 +15,15 @@ public class ImageMane : MonoBehaviour
 
     Vector3 pos;
     GameObject build;
-    GameObject scroll;
     Transform parent;
 
     float ObjWidth;
     // Start is called before the first frame update
     private void Awake()
     {
-        scroll = GameObject.FindGameObjectWithTag("ScrollView");
-        parent = scroll.transform;
         build = GameObject.FindGameObjectWithTag("BuildSpown");
         pos = build.transform.position;
+        parent = build.transform;
     }
     private void Start()
     {
