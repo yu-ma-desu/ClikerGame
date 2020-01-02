@@ -27,7 +27,8 @@ public class ImageMane : MonoBehaviour
     }
     private void Start()
     {
-        GameManeger.ObjSize = pos.y;
+        GameManeger.ObjSize = build.GetComponent<RectTransform>().offsetMin.y + 200;
+        pos.y = GameManeger.ObjSize;
     }
     /// <summary>
     /// 建物生成
@@ -35,6 +36,7 @@ public class ImageMane : MonoBehaviour
     /// <param name="ImageName">建造物名前</param>
     public void Image(in string ImageName)
     {
+        pos.y = GameManeger.ObjSize;
         switch (ImageName)
         {
             case "水":
@@ -53,6 +55,5 @@ public class ImageMane : MonoBehaviour
         ObjWidth = Images[ImageIndex].GetComponent<RectTransform>().sizeDelta.y;
         GameManeger.ObjSize += ObjWidth;
         GameManeger.ObjCount += 1;
-        pos.y = GameManeger.ObjSize;
     }
 }

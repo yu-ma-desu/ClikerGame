@@ -10,12 +10,20 @@ public class Foundation : MonoBehaviour
 {
     [SerializeField] GameObject _foundation;
     GameObject parent;
+    GameObject Content;
     Transform _transform;
-
+    Vector3 pos;
+    float SizeY;
     private void Awake()
     {
         parent = GameObject.FindGameObjectWithTag("Foundation");
+        Content = GameObject.FindGameObjectWithTag("ScrollView");
+        
+        SizeY = Content.GetComponent<RectTransform>().offsetMin.y - 30;
         _transform = parent.transform;
+        pos = _transform.transform.position;
+        pos.y = SizeY;
+        _transform.transform.position = pos;
         Instantiate(_foundation, _transform);
     }
 }
