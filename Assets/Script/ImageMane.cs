@@ -14,21 +14,27 @@ public class ImageMane : MonoBehaviour
     int ImageIndex;
 
     Vector3 pos;
+    float SizeY;
     GameObject build;
+    GameObject Content;
     Transform parent;
+    Transform ContentPos;
 
     float ObjWidth;
     // Start is called before the first frame update
     private void Awake()
     {
         build = GameObject.FindGameObjectWithTag("BuildSpown");
-        pos = build.transform.position;
+        Content = GameObject.FindGameObjectWithTag("ScrollView");
+
+        SizeY = Content.GetComponent<RectTransform>().offsetMin.y + 200;
         parent = build.transform;
-    }
-    private void Start()
-    {
-        GameManeger.ObjSize = build.GetComponent<RectTransform>().offsetMin.y + 200;
-        pos.y = GameManeger.ObjSize;
+        pos = parent.transform.position;
+        pos.y = SizeY;
+        parent.transform.position = pos;
+        GameManeger.ObjSize = SizeY;
+
+        ContentPos = Content.transform;
     }
     /// <summary>
     /// 建物生成
@@ -37,6 +43,8 @@ public class ImageMane : MonoBehaviour
     public void Image(in string ImageName)
     {
         pos.y = GameManeger.ObjSize;
+        Debug.Log(GameManeger.ObjSize);
+        parent.transform.position = pos;
         switch (ImageName)
         {
             case "水":
@@ -51,7 +59,7 @@ public class ImageMane : MonoBehaviour
             default:
                 break;
         }
-        Instantiate(Images[ImageIndex], new Vector3(pos.x, pos.y), Quaternion.identity, parent);
+        Instantiate(Images[ImageIndex],new Vector3 (parent.position.x,parent.position.y),Quaternion.identity, ContentPos);
         ObjWidth = Images[ImageIndex].GetComponent<RectTransform>().sizeDelta.y;
         GameManeger.ObjSize += ObjWidth;
         GameManeger.ObjCount += 1;

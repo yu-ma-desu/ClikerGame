@@ -18,8 +18,8 @@ public class Foundation : MonoBehaviour
     {
         parent = GameObject.FindGameObjectWithTag("Foundation");
         Content = GameObject.FindGameObjectWithTag("ScrollView");
-        
-        SizeY = Content.GetComponent<RectTransform>().offsetMin.y - 30;
+
+        SizeY = Content.GetComponent<RectTransform>().offsetMin.y;
         _transform = parent.transform;
         pos = _transform.transform.position;
         pos.y = SizeY;
