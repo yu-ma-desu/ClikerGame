@@ -316,7 +316,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 874559499}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.62960047
+  m_Size: 0.92239684
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -727,6 +727,11 @@ PrefabInstance:
       propertyPath: SecondUp
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 959265690898159754, guid: 362f426d95a50f44b98f7ccfd47132a1,
+        type: 3}
+      propertyPath: Weight
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362f426d95a50f44b98f7ccfd47132a1, type: 3}
 --- !u!224 &287000879 stripped
@@ -1118,6 +1123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SecondUp
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 959265690898159754, guid: 362f426d95a50f44b98f7ccfd47132a1,
+        type: 3}
+      propertyPath: Weight
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362f426d95a50f44b98f7ccfd47132a1, type: 3}
@@ -1565,7 +1575,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1457296186}
   m_HandleRect: {fileID: 1457296185}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2577,12 +2587,12 @@ PrefabInstance:
     - target: {fileID: 959265691337467551, guid: 362f426d95a50f44b98f7ccfd47132a1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 230.74995
+      value: -0.000051498413
       objectReference: {fileID: 0}
     - target: {fileID: 959265691337467551, guid: 362f426d95a50f44b98f7ccfd47132a1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.029880287
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 959265690898159758, guid: 362f426d95a50f44b98f7ccfd47132a1,
         type: 3}
@@ -2708,6 +2718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SecondUp
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 959265690898159754, guid: 362f426d95a50f44b98f7ccfd47132a1,
+        type: 3}
+      propertyPath: Weight
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 959265690898159752, guid: 362f426d95a50f44b98f7ccfd47132a1,
         type: 3}

@@ -18,6 +18,8 @@ public class Item : MonoBehaviour
     float price = 0;
     [SerializeField]
     float SecondUp = 0;
+    [SerializeField]
+    int Weight = 0;
 
     float second;
     float _cklick = 3;
@@ -29,17 +31,16 @@ public class Item : MonoBehaviour
     ImageMane imageMane;
     void Start()
     {
-        Property = GameObject.FindGameObjectWithTag("Property");
         ImageObj = GameObject.FindGameObjectWithTag("ImageMane");
-        _game = Property.GetComponent<GameManeger>();
         imageMane = ImageObj.GetComponent<ImageMane>();
+
         _nameText.text = Name;
         _price.text = $"{price.ToString("f1")}円";
     }
 
     public void BuyItem()
     {
-        if (_game.Maney >= price)
+        if (GameManeger.Maney >= price)
         {
             Accounting();
         }
@@ -51,19 +52,22 @@ public class Item : MonoBehaviour
     void Accounting()
     {
         //三項演算子試し
-        second = _game.SecondManey <= 1 ? SecondUp : _game.SecondManey * SecondUp;
+        second = GameManeger.SecondManey <= 1 ? SecondUp : GameManeger.SecondManey * SecondUp;
 
         imageMane.Image(Name);
 
-        _game.Maney -= price;
-        _game.SecondManey += second;
+        GameManeger.Maney -= price;
+        GameManeger.SecondManey += second;
 
         price *= 1.2f;
         _price.text = $"{price.ToString("f1")}円";
 
+        GameManeger.ObjWeight += Weight;
+        Debug.Log(GameManeger.ObjWeight);
+
         if (GameManeger.ObjCount > _cklick)
         {
-            _game.ClickManey *= 2;
+            GameManeger.ClickManey *= 2;
             _cklick += 3;
         }
     }

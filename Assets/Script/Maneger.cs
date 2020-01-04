@@ -21,32 +21,24 @@ public class Maneger : MonoBehaviour
     float SecondNum;
 
     float SecondTime = 0.0f;
-
-    GameManeger _game;
-    GameObject Script;
-    void Start()
-    {
-        Script = GameObject.FindGameObjectWithTag("Property");
-        _game = Script.GetComponent<GameManeger>();
-    }
     private void FixedUpdate()
     {
         SecondTime += Time.deltaTime;
         if (SecondTime >= 1)
         {
-            _game.Maney += SecondNum;
+            GameManeger.Maney += SecondNum;
             SecondTime = 0;
         }
     }
     void Update()
     {
-        count = _game.Maney;
+        count = GameManeger.Maney;
         CountText.text = $"{clicknum.ToString("f1")}";
 
-        clicknum = _game.ClickManey;
+        clicknum = GameManeger.ClickManey;
         ALLCount.text = $"{count.ToString("f1")}円";
 
-        SecondNum = _game.SecondManey;
+        SecondNum = GameManeger.SecondManey;
         _secondText.text = $"{SecondNum.ToString("f1")}";
     }
 }
