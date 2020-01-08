@@ -5,7 +5,6 @@ using ClikerGame;
 
 /// <summary>
 /// 土台の生成場所
-/// もしかしたら後々無くなるかもしれない 
 /// </summary>
 public class Foundation : MonoBehaviour
 {
@@ -26,9 +25,5 @@ public class Foundation : MonoBehaviour
         pos.y = SizeY;
         _transform.transform.position = pos;
         Instantiate(_foundation, _transform);
-    }
-    void Over()
-    {
-        //重さ判定入れる予定
     }
 }

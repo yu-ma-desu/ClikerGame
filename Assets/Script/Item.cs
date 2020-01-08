@@ -63,7 +63,6 @@ public class Item : MonoBehaviour
         _price.text = $"{price.ToString("f1")}円";
 
         GameManeger.ObjWeight += Weight;
-        Debug.Log(GameManeger.ObjWeight);
 
         if (GameManeger.ObjCount > _cklick)
         {
