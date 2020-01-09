@@ -45,6 +45,8 @@ public class Result : MonoBehaviour
     }
     void Back()
     {
+        GameManeger.Clere = 0;
+        GameManeger.WeghtOver = 0;
         SceneManager.LoadScene(1);
     }
 }

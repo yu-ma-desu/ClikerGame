@@ -24,10 +24,8 @@ public class Item : MonoBehaviour
     float second;
     float _cklick = 3;
 
-    GameObject Property;
     GameObject ImageObj;
 
-    GameManeger _game;
     ImageMane imageMane;
     void Start()
     {

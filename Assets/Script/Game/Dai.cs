@@ -5,18 +5,26 @@ using UnityEngine.SceneManagement;
 using ClikerGame;
 
 /// <summary>
-/// 台の耐久性
+/// ゲームクリアか判定
 /// </summary>
 public class Dai : MonoBehaviour
 {
-    [SerializeField] int WeghtOver;
     private void Update()
     {
-        if (WeghtOver < GameManeger.ObjWeight)
+        //ゲームクリア
+        if (GameManeger.Clere < GameManeger.ObjSize)
         {
-            Destroy(this.gameObject);
+            GameManeger.ResultChase = 1;
             SceneManager.LoadScene(3);
         }
+        //ゲームオーバー
+        if (GameManeger.WeghtOver < GameManeger.ObjWeight)
+        {
+            Destroy(this.gameObject);
+            GameManeger.ResultChase = 2;
+            SceneManager.LoadScene(3);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("確認用");

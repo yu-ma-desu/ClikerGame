@@ -18,6 +18,8 @@ namespace ClikerGame
         static public float ObjSize { get; set; } = 0;
         static public int ObjCount { get; set; } = 0;
         static public int ObjWeight { get; set; } = 0;
+        static public float Clere { get; set; } = 0;
+        static public float WeghtOver { get; set; } = 0;
         static public int ResultChase { get; set; } = 0;
         private void Awake()
         {
