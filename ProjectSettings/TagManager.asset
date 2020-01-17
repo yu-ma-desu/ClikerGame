@@ -9,6 +9,7 @@ TagManager:
   - Foundation
   - ImageMane
   - BuildSpown
+  - Home
   layers:
   - Default
   - TransparentFX

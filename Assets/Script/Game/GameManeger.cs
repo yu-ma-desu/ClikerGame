@@ -21,6 +21,7 @@ namespace ClikerGame
         static public float Clere { get; set; } = 0;
         static public float WeghtOver { get; set; } = 0;
         static public int ResultChase { get; set; } = 0;
+        static public int AllManey { get; set; } = 0;
         private void Awake()
         {
             Maney = 0;
@@ -29,6 +30,11 @@ namespace ClikerGame
             ObjSize = 0;
             ObjCount = 0;
             ObjWeight = 0;
+        }
+        static public void ResultInitialize()
+        {
+            Clere = 0;
+            WeghtOver = 0;
         }
     }
 }

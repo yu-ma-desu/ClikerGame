@@ -37,7 +37,7 @@ public class Result : MonoBehaviour
     }
     void Sucess()
     {
-
+        
     }
     void Failure()
     {
@@ -45,8 +45,7 @@ public class Result : MonoBehaviour
     }
     void Back()
     {
-        GameManeger.Clere = 0;
-        GameManeger.WeghtOver = 0;
+        GameManeger.ResultInitialize();
         SceneManager.LoadScene(1);
     }
 }
