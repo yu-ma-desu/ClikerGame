@@ -35,7 +35,9 @@ public class Item : MonoBehaviour
         _nameText.text = Name;
         _price.text = $"{price.ToString("f1")}円";
     }
-
+     /// <summary>
+     /// アイテム買うとこ
+     /// </summary>
     public void BuyItem()
     {
         if (GameManeger.Maney >= price)

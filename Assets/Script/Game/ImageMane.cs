@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using ClikerGame;
 
-
 /// <summary>  
 /// 建物生成のみ
 /// </summary>
