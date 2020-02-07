@@ -13,6 +13,10 @@ public class Result : MonoBehaviour
     [SerializeField] Text Bonus;
     [SerializeField] Text ALL;
     [SerializeField] Text Game;
+    [SerializeField] Text Bad;
+
+    [SerializeField] GameObject Succes;
+    [SerializeField] GameObject Badddd;
     int _bounus;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,7 @@ public class Result : MonoBehaviour
     }
     void Sucess()
     {
+        Succes.SetActive(true);
         GameManeger.AllManey += (int)GameManeger.Maney;
         _bounus= GameManeger.ObjCount * 100;
         GameManeger.AllManey += _bounus;
@@ -50,7 +55,9 @@ public class Result : MonoBehaviour
     }
     void Failure()
     {
+        Badddd.SetActive(true);
         GameManeger.AllManey -= GameManeger.ObjCount * 1000;
+        Bad.text = GameManeger.AllManey.ToString();
     }
     void Back()
     {

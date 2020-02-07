@@ -22,6 +22,9 @@ namespace ClikerGame
         static public float WeghtOver { get; set; } = 0;
         static public int ResultChase { get; set; } = 0;
         static public int AllManey { get; set; } = 0;
+        static public float Weight { get; set; } = 0;
+        static public int Garasu { get; set; } = 0;
+        static public int Tetu { get; set; } = 0;
         private void Awake()
         {
             Maney = 0;
@@ -34,7 +37,7 @@ namespace ClikerGame
         static public void ResultInitialize()
         {
             Clere = 0;
-            WeghtOver = 0;
+            WeghtOver -= Weight;
         }
     }
 }

@@ -12,6 +12,9 @@ public class ImageMane : MonoBehaviour
     List<GameObject> Images = new List<GameObject>();
     int ImageIndex;
 
+    [SerializeField] GameObject Gatasu;
+    [SerializeField] GameObject Tetu;
+
     Vector3 pos;
     float SizeY;
     GameObject build;
@@ -34,6 +37,10 @@ public class ImageMane : MonoBehaviour
         GameManeger.ObjSize = SizeY;
 
         ContentPos = Content.transform;
+
+        if (GameManeger.Garasu > 0)Gatasu.SetActive(true);
+        
+        if (GameManeger.Tetu > 0) Tetu.SetActive(true);
     }
     /// <summary>
     /// 建物生成
@@ -54,6 +61,12 @@ public class ImageMane : MonoBehaviour
                 break;
             case "木材":
                 ImageIndex = 2;
+                break;
+            case "ガラス":
+                ImageIndex = 3;
+                break;
+            case "鉄":
+                ImageIndex = 4;
                 break;
             default:
                 break;

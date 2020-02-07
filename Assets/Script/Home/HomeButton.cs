@@ -18,6 +18,7 @@ public class HomeButton : MonoBehaviour
     public void OnButton()
     {
         GameManeger.Clere = Clere;
-        GameManeger.WeghtOver = Weght;
+        GameManeger.WeghtOver += Weght;
+        GameManeger.Weight = Weght;
     }
 }
